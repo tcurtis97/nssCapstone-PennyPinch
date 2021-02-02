@@ -29,5 +29,8 @@ export const Penny = () => (
     <Route path="/register">
       <Register />
     </Route>
+    <Route path="/logout">
+      <Register />
+    </Route>
   </>
 );
