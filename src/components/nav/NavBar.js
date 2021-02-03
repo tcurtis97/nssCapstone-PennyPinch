@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "../auth/Login"
 import { Logout } from "../auth/Logout"
-
+import "./NavBar.css"
 
 export const NavBar = (props) => {
     return (

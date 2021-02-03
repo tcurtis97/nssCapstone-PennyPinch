@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import "./Budget.css"
 
 export const BudgetCard = ({budget}) => (
     <section className="budget">

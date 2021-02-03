@@ -6,10 +6,10 @@ import { useHistory } from "react-router-dom"
 
 
 export const IncomeList = () => {
-  // This state changes when `getAnimals()` is invoked below
+  
   const { incomes, getIncomes } = useContext(IncomeContext)
 
-  //useEffect - reach out to the world for something
+  
   useEffect(() => {
     
     getIncomes()

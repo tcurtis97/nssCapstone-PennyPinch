@@ -2,12 +2,11 @@ import React, { useContext, useEffect } from "react"
 import {BudgetContext } from "./BudgetProvider"
 import {BudgetCard } from "./Budget"
 import { useHistory } from "react-router-dom"
+import "./Budget.css"
 
 export const BudgetList = () => {
-  // This state changes when `getAnimals()` is invoked below
   const { budgets, getBudgets } = useContext(BudgetContext)
 
-  //useEffect - reach out to the world for something
   useEffect(() => {
     
     getBudgets()

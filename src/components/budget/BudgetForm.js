@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
-
+import "./Budget.css"
 import { BudgetContext } from "../budget/BudgetProvider"
 
 import { useHistory, useParams } from 'react-router-dom';
@@ -48,7 +48,7 @@ export const BudgetForm = () => {
       setIsLoading(true);
          
           if (budgetId){
-            //PUT - update
+           
             updateBudget({
                 id: budget.id,
                 name: budget.name,
@@ -57,7 +57,7 @@ export const BudgetForm = () => {
             })
             .then(() => history.push(`/budgets/detail/${budget.id}`))
           }else {
-            //POST - add
+            
             addBudget({
                 name: budget.name,
                 date : budget.date,

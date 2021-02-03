@@ -4,7 +4,7 @@ import { BudgetList } from "./budget/BudgetList"
 import { BudgetProvider } from "./budget/BudgetProvider"
 import { BudgetDetail } from "./budget/BudgetDetail"
 import { BudgetForm } from "./budget/BudgetForm"
-import  { BudgetView } from "./budget/BudgetView"
+// import  { BudgetView } from "./budget/BudgetView"
 
 import { IncomeList } from "./income/IncomeList"
 import { IncomeProvider } from "./income/IncomeProvider"
@@ -27,10 +27,10 @@ export const ApplicationViews = () => {
               <Route exact path="/budgets/edit/:budgetId(\d+)">
                 <BudgetForm />
               </Route>
-              
-              <Route exact path="/budgets/view/:budgetId(\d+)">
+{/*               
+             <Route exact path="/budgets/view/:budgetId(\d+)">
                 <BudgetView />
-              </Route>
+              </Route>  */}
             </BudgetProvider> 
 
              

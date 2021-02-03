@@ -49,7 +49,7 @@ export const ExpenseForm = () => {
       setIsLoading(true);
          
           if (expenseId){
-            //PUT - update
+  
             updateExpense({
                 id: expense.id,
                 name: expense.name,
@@ -59,7 +59,7 @@ export const ExpenseForm = () => {
             })
             .then(() => history.push(`/expenses/detail/${expense.id}`))
           }else {
-            //POST - add
+           
             addExpense({
                 name: expense.name,
                 value: expense.value,
@@ -102,7 +102,7 @@ export const ExpenseForm = () => {
         <fieldset>
         <div className="form-group">
                 <label htmlFor="value">Value:</label>
-                <input type="text" id="value" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Income Value" value={expense.value}/>
+                <input type="text" id="value" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Expense Value" value={expense.value}/>
             </div>
         </fieldset>
 

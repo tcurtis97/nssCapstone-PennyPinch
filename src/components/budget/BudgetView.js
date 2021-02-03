@@ -4,13 +4,14 @@ import { BudgetContext } from "../budget/BudgetProvider"
 import { ExpenseContext } from "../expenses/ExpenseProvider"
 
 export const BudgetView = () => {
-    const { addExpense, getExpenseById, updateExpense, getExpenses } = useContext(ExpenseContext)
-    const { addBudget, getBudgetById, updateBudget, getBudgets } = useContext(BudgetContext)
+    const { expenses , getExpenses } = useContext(ExpenseContext)
+    const { budgets , getBudgets } = useContext(BudgetContext)
 
 
 
 useEffect(() => {
-getExpenses().then(getBudgets())
+getExpenses()
+.then(getBudgets)
 
 }, [])
 
@@ -24,16 +25,23 @@ getExpenses().then(getBudgets())
             Add Expense
           </button>
           <h4 className="expense__title">Expenses</h4>
-          <div className = "housing_cat"></div>
-          <div className = "transportation_cat"></div>
-          <div className = "food_cat"></div>
-          <div className = "life/health_cat"></div>
-          <div className = "personal_cat"></div>
-          <div className = "debt_cat"></div>
-          <div className = "saving_cat"></div>
-          <div className = "giving_cat"></div>
+  
           </section>
       )
 
       
 }
+
+
+// {expenses.map(expense => {
+//   const housingCat = expenses.filter(e => e.categoryId === categories.id)
+//   const total = (housingCat) => {
+//     let totalValue = 0
+//     for(const i in housingCat) {
+//       totalValue += housingCat[i]
+//     }
+//     return totalValue
+//   }
+// return <ExpenseCard key={expesne.id} expense={expense}/>
+// })
+// }

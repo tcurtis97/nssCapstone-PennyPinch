@@ -1,9 +1,9 @@
 import React, { useState, createContext } from "react"
 
-// The context is imported and used by individual components that need data
+
 export const IncomeContext = createContext()
 
-// This component establishes what data can be used.
+
 export const IncomeProvider = (props) => {
     const [incomes, setIncomes] = useState([])
     
@@ -37,7 +37,7 @@ export const IncomeProvider = (props) => {
     }
 
     const updateIncome = income => {
-        return fetch(`http://localhost:8088/income/${income.id}`, {
+        return fetch(`http://localhost:8088/incomes/${income.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json"

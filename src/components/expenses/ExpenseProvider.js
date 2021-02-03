@@ -1,14 +1,14 @@
 import React, { useState, createContext } from "react"
 
-// The context is imported and used by individual components that need data
+
 export const ExpenseContext = createContext()
 
-// This component establishes what data can be used.
+
 export const ExpenseProvider = (props) => {
     const [expenses, setExpenses] = useState([])
     
     const getExpenses = () => {
-        return fetch("http://localhost:8088/expenses?_expand=category")
+        return fetch("http://localhost:8088/expenses?_expand=categories")
         .then(res => res.json())
         .then(setExpenses)
     }
@@ -37,7 +37,7 @@ export const ExpenseProvider = (props) => {
     }
 
     const updateExpense = expense => {
-        return fetch(`http://localhost:8088/expense/${expense.id}`, {
+        return fetch(`http://localhost:8088/expenses/${expense.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json"

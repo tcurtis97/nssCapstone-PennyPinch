@@ -1,9 +1,9 @@
 import React, { useState, createContext } from "react"
 
-// The context is imported and used by individual components that need data
+
 export const BudgetContext = createContext()
 
-// This component establishes what data can be used.
+
 export const BudgetProvider = (props) => {
     const [budgets, setBudgets] = useState([])
 
@@ -36,10 +36,21 @@ export const BudgetProvider = (props) => {
             .then(getBudgets)
     }
 
+    const updateBudget = budget => {
+        return fetch(`http://localhost:8088/budgets/${budget.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(budget)
+        })
+          .then(getBudgets)
+      }
+
 
     return (
         <BudgetContext.Provider value={{
-            budgets, getBudgets, addBudget, getBudgetById, deleteBudget
+            budgets, getBudgets, addBudget, getBudgetById, deleteBudget, updateBudget
         }}>
             {props.children}
         </BudgetContext.Provider>

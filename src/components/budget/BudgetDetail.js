@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react"
 import { BudgetContext } from "./BudgetProvider"
-
+import "./Budget.css"
 import { useParams, useHistory } from "react-router-dom"
 
 
