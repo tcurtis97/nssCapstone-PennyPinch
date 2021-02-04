@@ -39,9 +39,6 @@ export const BudgetDetail = () => {
         
         <button onClick={budgetDelete}>Delete Budget</button>
         
-        <button onClick={() => {
-        history.push(`/budgets/view/${budget.id}`)
-          }}>View</button>
 
     </section>
   )

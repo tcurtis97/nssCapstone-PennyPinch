@@ -4,8 +4,8 @@ import { BudgetList } from "./budget/BudgetList"
 import { BudgetProvider } from "./budget/BudgetProvider"
 import { BudgetDetail } from "./budget/BudgetDetail"
 import { BudgetForm } from "./budget/BudgetForm"
-// import  { BudgetView } from "./budget/BudgetView"
-
+import  { BudgetView } from "./budget/BudgetView"
+import { ExpenseProvider } from "./expenses/ExpenseProvider"
 import { IncomeList } from "./income/IncomeList"
 import { IncomeProvider } from "./income/IncomeProvider"
 import { IncomeDetail } from "./income/IncomeDetail"
@@ -16,6 +16,8 @@ export const ApplicationViews = () => {
     return ( 
         <>
             <BudgetProvider>
+            {/* <ExpenseProvider></ExpenseProvider> */}
+              
               <Route exact path="/">
                 <BudgetList />
               </Route>
@@ -27,10 +29,10 @@ export const ApplicationViews = () => {
               <Route exact path="/budgets/edit/:budgetId(\d+)">
                 <BudgetForm />
               </Route>
-{/*               
+              
              <Route exact path="/budgets/view/:budgetId(\d+)">
                 <BudgetView />
-              </Route>  */}
+              </Route> 
             </BudgetProvider> 
 
              
@@ -40,6 +42,9 @@ export const ApplicationViews = () => {
                 <BudgetDetail />
               </Route>
             </BudgetProvider>
+
+
+
 
 
 

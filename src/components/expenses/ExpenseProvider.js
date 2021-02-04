@@ -25,7 +25,7 @@ export const ExpenseProvider = (props) => {
     }
 
     const getExpenseById = (id) => {
-        return fetch(`http://localhost:8088/expenses/${id}`)
+        return fetch(`http://localhost:8088/expenses/${id}?embed=categories`)
             .then(res => res.json())
     }
    
