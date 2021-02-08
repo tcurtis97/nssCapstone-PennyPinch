@@ -53,7 +53,7 @@ export const BudgetForm = () => {
                 id: budget.id,
                 name: budget.name,
                 date: budget.date,
-                userId : user
+                userId : parseInt(user)
             })
             .then(() => history.push(`/budgets/detail/${budget.id}`))
           }else {
@@ -61,7 +61,7 @@ export const BudgetForm = () => {
             addBudget({
                 name: budget.name,
                 date : budget.date,
-                userId : user
+                userId : parseInt(user)
             })
             .then(() => history.push("/budgets"))
           }

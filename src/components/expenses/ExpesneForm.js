@@ -1,19 +1,20 @@
 import React, { useContext, useEffect, useState } from "react"
 
-import { ExpenseContext } from "../expense/ExpenseProvider"
-
+import { ExpenseContext } from "../expenses/ExpenseProvider"
+import { CategoryContext } from "../categories/CategoryProvider";
 import { useHistory, useParams } from 'react-router-dom';
 
 
 
 export const ExpenseForm = () => {
     const { addExpense, getExpenseById, updateExpense, getExpenses } = useContext(ExpenseContext)
-
+    const { categories, getCategories } = useContext(CategoryContext)
    
 
     const [expense, setExpenses] = useState({
       name: "",
       date: "",
+      categoryId: 0
     });
 
 
@@ -21,6 +22,7 @@ export const ExpenseForm = () => {
 
     const history = useHistory();
     const { expenseId } = useParams();
+    const { budgetId } = useParams();
     
     const handleControlledInputChange = (event) => {
       const newExpense = { ...expense }
@@ -37,12 +39,9 @@ export const ExpenseForm = () => {
 
     const handleClickSaveExpense = () => {
           
-      const name= expense.name
-      const value= expense.value
-      const category= expense.categoryId
       const user = localStorage.getItem("Penny_user")
       
-      if (name === "" || value === "" || category === 0) {
+      if (expense.name === "" || expense.value === "" || expense.categoryId === 0) {
         window.alert("Please enter a name and value and choose a category")
       } else {
 
@@ -53,18 +52,21 @@ export const ExpenseForm = () => {
             updateExpense({
                 id: expense.id,
                 name: expense.name,
-                value: expense.value,
-                categoryId: category,
-                userId : user
+                value: parseInt(expense.value),
+                categoryId: expense.categoryId,
+                budgetId : { budgetId }, 
+                userId : parseInt(user)
             })
             .then(() => history.push(`/expenses/detail/${expense.id}`))
           }else {
            
             addExpense({
                 name: expense.name,
-                value: expense.value,
-                categoryId: category,
-                userId : user
+                value: parseInt(expense.value),
+                categoryId: expense.categoryId,
+                budgetId:  { budgetId },
+                userId : parseInt(user)
+                
             })
             .then(() => history.push("/expenses"))
           }
@@ -73,7 +75,7 @@ export const ExpenseForm = () => {
       
     
     useEffect(() => {
-        getExpenses().then(() => {
+        getExpenses().then(getCategories).then(() => {
             if (expenseId) {
               getExpenseById(expenseId)
               .then(expense => {
@@ -105,6 +107,20 @@ export const ExpenseForm = () => {
                 <input type="text" id="value" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Expense Value" value={expense.value}/>
             </div>
         </fieldset>
+
+        <fieldset>
+        <div className="form-group">
+          <label htmlFor="category">Assign to Category: </label>
+          <select value={expense.categoryId} id="categoryId" className="form-control" onChange={handleControlledInputChange}>
+            <option value="0">Select a Category</option>
+            {categories.map(c => (
+              <option key={c.id} value={c.id}>
+                {c.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      </fieldset>
 
         <button className="btn btn-primary"
         disabled={isLoading}

@@ -8,7 +8,7 @@ export const IncomeProvider = (props) => {
     const [incomes, setIncomes] = useState([])
     
     const getIncomes = () => {
-        return fetch("http://localhost:8088/incomes")
+        return fetch("http://localhost:8088/incomes?_embed=expenses")
         .then(res => res.json())
         .then(setIncomes)
     }

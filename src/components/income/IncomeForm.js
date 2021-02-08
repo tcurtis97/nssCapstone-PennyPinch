@@ -50,7 +50,7 @@ export const IncomeForm = () => {
                 id: income.id,
                 name: income.name,
                 value: income.value,
-                userId : user
+                userId : parseInt(user)
             })
             .then(() => history.push(`/incomes/detail/${income.id}`))
           }else {
@@ -58,7 +58,7 @@ export const IncomeForm = () => {
             addIncome({
                 name: income.name,
                 value : income.value,
-                userId : user
+                userId : parseInt(user)
             })
             .then(() => history.push("/incomes"))
           }

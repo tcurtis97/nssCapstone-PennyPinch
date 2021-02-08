@@ -5,10 +5,10 @@ export const BudgetContext = createContext()
 
 
 export const BudgetProvider = (props) => {
-    const [budgets, setBudgets] = useState([])
+    const [budget, setBudgets] = useState([])
 
     const getBudgets = () => {
-        return fetch("http://localhost:8088/budgets?_expand=")
+        return fetch("http://localhost:8088/budgets/?_embed=expenses")
         .then(res => res.json())
         .then(setBudgets)
     }
@@ -25,8 +25,9 @@ export const BudgetProvider = (props) => {
     }
 
     const getBudgetById = (id) => {
-        return fetch(`http://localhost:8088/budgets/${id}`)
+        return fetch(`http://localhost:8088/budgets/${id}?_embed=expenses`)
             .then(res => res.json())
+
     }
    
     const deleteBudget = budgetId => {
@@ -35,6 +36,7 @@ export const BudgetProvider = (props) => {
         })
             .then(getBudgets)
     }
+
 
     const updateBudget = budget => {
         return fetch(`http://localhost:8088/budgets/${budget.id}`, {
@@ -50,7 +52,7 @@ export const BudgetProvider = (props) => {
 
     return (
         <BudgetContext.Provider value={{
-            budgets, getBudgets, addBudget, getBudgetById, deleteBudget, updateBudget
+            budget, getBudgets, addBudget, getBudgetById, deleteBudget, updateBudget
         }}>
             {props.children}
         </BudgetContext.Provider>

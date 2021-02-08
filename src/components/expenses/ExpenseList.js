@@ -1,35 +1,54 @@
-// import React, { useContext, useEffect } from "react"
-// import {ExpenseContext } from "./ExpenseProvider"
-// import {ExpenseCard } from "./Expense"
-// import "./Expense.css"
-// import { CategoryContext } from "../categories/CategoryProvider"
+import React, { useContext, useEffect, useState } from "react"
+import { ExpenseContext } from "./ExpenseProvider"
+import { CategoryContext } from "../categories/CategoryProvider"
+import { useParams, useHistory } from "react-router-dom"
+import { ExpenseCard } from "./ExpenseCard"
+import { BudgetContext } from "../budget/BudgetProvider";
 
-// export const ExpenseList = () => {
-//   const { expenses, getExpenses } = useContext(ExpenseContext)
-//   const { categories, getCategories } = useContext(CategoryContext)
-//   useEffect(() => {
-//     getExpenses().then(getCategories)
+export const ExpenseList = () => {
+    const { expenses, getExpenses } = useContext(ExpenseContext)
+    const { categories, getCategories } = useContext(CategoryContext)
+    const { getBudgetById } = useContext(BudgetContext);
+	
+	const history = useHistory();
+  const { budgetId } = useParams();
 
-//   }, [])
-
-
-
-//   return (
-//     <div className="expenses">
-
-//       {
-//         expenses.map(expense => {
-//             const expense = expenses.map(expense => expense.categoryId === expenses.category.id)
-//           return <ExpenseCard key={category.id} category={category} expense={} />
-//         })
-//       }
-//     </div>
+  const [budget, setBudget] = useState({
+    name: "",
+    date: "",
+    userId: 0,
+    expenses:[]
+  });
 
 
-// // const total = (expense) => {
-// //   let totalValue = 0
-// //   for(const i in expense) {
-// //     totalValue += housingCat[i]
-// //   }
-// //   return totalValue
-// // }
+
+
+  
+    useEffect(() => {
+      getCategories()
+        .then(getExpenses)
+        .then(() => {
+          if (budgetId) {
+            getBudgetById(budgetId).then((budget) => {
+              setBudget(budget);
+            });
+          }
+        });
+    }, []);
+
+
+
+  return (
+    <section className="expense">
+       
+       {
+        budget.expenses?.map(e => {
+         const expense = e.filter(ef => ef.categoryId === categories.Id)
+            return <ExpenseCard key={e.id}  expense={e} budget={e.budget} category={e.category} />
+
+        })
+        }
+        
+    </section>
+  )
+}

@@ -1,18 +1,19 @@
-import React from "react"
+import React from "react";
+import { ExpenseContext } from "../expenses/ExpenseProvider";
+import { Link } from "react-router-dom";
 
-import { Link } from "react-router-dom"
+export const CategoryCard = ({ category, total }) => {
+  return (
 
-export const CategoryCard = ({ category, total }) => (
-    <section className="category">
-        <h3 className="category_name">
-        <Link to={`/expenses/detail/`}>
-          { category.name }
-        </Link>
-      </h3>
+  <section className="category">
+    <h3 className="category_name">
+      {category.name}
+    </h3>
 
-<div className='total_expense'>
+    <div className="total_expense">
     {total}
-</div>
-    
-    </section>
-)
+    </div>
+
+    {/* <button className='view'> <Link to={`/category/detail/${budId}`}>View expenses</Link> </button> */}
+  </section>
+  )};

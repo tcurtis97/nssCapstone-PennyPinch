@@ -8,7 +8,7 @@ export const ExpenseProvider = (props) => {
     const [expenses, setExpenses] = useState([])
     
     const getExpenses = () => {
-        return fetch("http://localhost:8088/expenses?_expand=categories")
+        return fetch("http://localhost:8088/expenses?_expand=category&_expand=budget")
         .then(res => res.json())
         .then(setExpenses)
     }
@@ -25,7 +25,7 @@ export const ExpenseProvider = (props) => {
     }
 
     const getExpenseById = (id) => {
-        return fetch(`http://localhost:8088/expenses/${id}?embed=categories`)
+        return fetch(`http://localhost:8088/expenses/${id}?expand=category`)
             .then(res => res.json())
     }
    
