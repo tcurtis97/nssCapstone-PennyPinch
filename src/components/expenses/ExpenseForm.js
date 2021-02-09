@@ -54,21 +54,21 @@ export const ExpenseForm = () => {
                 name: expense.name,
                 value: parseInt(expense.value),
                 categoryId: expense.categoryId,
-                budgetId : { budgetId }, 
+                budgetId : parseInt(budgetId), 
                 userId : parseInt(user)
             })
-            .then(() => history.push(`/expenses/detail/${expense.id}`))
+            .then(() => history.push(`/budget/view/${budgetId}`))
           }else {
            
             addExpense({
                 name: expense.name,
                 value: parseInt(expense.value),
                 categoryId: expense.categoryId,
-                budgetId:  { budgetId },
+                budgetId: parseInt(budgetId),
                 userId : parseInt(user)
                 
             })
-            .then(() => history.push("/expenses"))
+            .then(() => history.push(`/budget/view/${budgetId}`))
           }
         }
       }

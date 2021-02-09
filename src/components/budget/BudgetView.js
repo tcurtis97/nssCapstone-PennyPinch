@@ -7,7 +7,7 @@ import { CategoryCard } from "../categories/CategoryCard";
 import { ExpenseCard } from "../expenses/ExpenseCard";
 import { CounterCard } from "../counter/Counter";
 import { IncomeContext } from "../income/IncomeProvider"
-
+import { ExpenseList } from "../expenses/ExpenseList"
 import { Link } from "react-router-dom";
 
 export const BudgetView = () => {
@@ -18,12 +18,20 @@ export const BudgetView = () => {
 
   
   const [budget, setBudget] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState({id: 0, name: 'yeet'});
 
   const handleControlledInputChange = (event) => {
-    const newBudget = { ...budget }
-    newBudget[event.target.id] = event.target.value
-    setBudget(newBudget)
+    let newCategory = { ...selectedCategory }
+    let selectedId = event.target.options.selectedIndex
+    let selectedName = event.target.value
+    
+    newCategory.id = selectedId
+    newCategory.name = selectedName
+    setSelectedCategory(newCategory)
   }
+
+  
+
 
   useEffect(() => {
     getCategories()
@@ -43,6 +51,7 @@ export const BudgetView = () => {
   console.log(totIncome)
   let totExpenses = budget.expenses?.reduce((prev,next) => prev + next.value,0);
   console.log(totExpenses)
+  let counterNum = totIncome - totExpenses;
   
   
   const { budgetId } = useParams();
@@ -57,13 +66,12 @@ export const BudgetView = () => {
 
       <div className="counter">
       {
-       
+       counterNum ? counterNum : 0
       }
       </div>
 
       <button className="addExpense">
-        {" "}
-        <Link to={`/expense/create/${budget.id}`}>Add expense</Link>{" "}
+        <Link to={`/expenses/create/${budgetId}`}>Add expense</Link>
       </button>
 
       <h4 className="expense__title">Expenses</h4>
@@ -74,13 +82,15 @@ export const BudgetView = () => {
           <select value={categories.id} id="cat_select" className="form-control" onChange={handleControlledInputChange}>
             <option value="0">Select a Category</option>
             {categories.map(c => (
-              <option key={c.id} value={c.id}>
+              <option key={c.id} id={c.id} name={c.name}>
                 {c.name}
               </option>
             ))}
           </select>
         </div>
       </fieldset>
+      
+      {selectedCategory.id == 0 ?
 
       <div className="category_card">
         {categories.map((c) => {
@@ -89,7 +99,8 @@ export const BudgetView = () => {
           
           return <CategoryCard key={c.id} category={c} total={total} />;
         })}
-      </div>
+      </div> 
+     : <ExpenseList selectedCategory={selectedCategory} /> }
     </section>
   );
 };

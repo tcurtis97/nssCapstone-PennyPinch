@@ -5,7 +5,7 @@ import { useParams, useHistory } from "react-router-dom"
 import { ExpenseCard } from "./ExpenseCard"
 import { BudgetContext } from "../budget/BudgetProvider";
 
-export const ExpenseList = () => {
+export const ExpenseList = ({ selectedCategory }) => {
     const { expenses, getExpenses } = useContext(ExpenseContext)
     const { categories, getCategories } = useContext(CategoryContext)
     const { getBudgetById } = useContext(BudgetContext);
@@ -13,13 +13,10 @@ export const ExpenseList = () => {
 	const history = useHistory();
   const { budgetId } = useParams();
 
-  const [budget, setBudget] = useState({
-    name: "",
-    date: "",
-    userId: 0,
-    expenses:[]
-  });
+  const [budget, setBudget] = useState({});
 
+  let thing = budget.expenses?.filter(e => e.categoryId == selectedCategory.id)
+  console.log(thing)
 
 
 
@@ -42,13 +39,10 @@ export const ExpenseList = () => {
     <section className="expense">
        
        {
-        budget.expenses?.map(e => {
-         const expense = e.filter(ef => ef.categoryId === categories.Id)
-            return <ExpenseCard key={e.id}  expense={e} budget={e.budget} category={e.category} />
-
+        thing?.map(e => {
+            return <ExpenseCard key={e.id}  expense={e} category={selectedCategory} budgetParam={budgetId} />
         })
-        }
-        
+      }
     </section>
   )
 }

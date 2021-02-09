@@ -23,12 +23,8 @@ export const BudgetForm = () => {
     const { budgetId } = useParams();
     
     const handleControlledInputChange = (event) => {
-      const newBudget = { ...budget }
+      let newBudget = { ...budget }
       let selectedVal = event.target.value
-      if (event.target.id.includes("Id")) {
-        selectedVal = parseInt(selectedVal)
-      }
-     
       newBudget[event.target.id] = selectedVal
       
       setBudgets(newBudget)
@@ -38,7 +34,7 @@ export const BudgetForm = () => {
     const handleClickSaveBudget = () => {
           
       const name= budget.name
-      const date= budget.date
+      const date= budget.month
       const user = localStorage.getItem("Penny_user")
       
       if (name === "" || date === "") {
@@ -52,18 +48,18 @@ export const BudgetForm = () => {
             updateBudget({
                 id: budget.id,
                 name: budget.name,
-                date: budget.date,
+                date: date,
                 userId : parseInt(user)
             })
-            .then(() => history.push(`/budgets/detail/${budget.id}`))
+            .then(() => history.push(`/budget/detail/${budget.id}`))
           }else {
             
             addBudget({
                 name: budget.name,
-                date : budget.date,
+                date : date,
                 userId : parseInt(user)
             })
-            .then(() => history.push("/budgets"))
+            .then(() => history.push("/budget"))
           }
         }
       }
@@ -83,7 +79,7 @@ export const BudgetForm = () => {
           })
         }, [])
 
-   
+      const monthMap = [{id: 1, month: 'January'}, {id: 2, month: 'February'},{id: 3, month: 'March'},{id: 4, month: 'April'},{id: 5, month: 'May'},{id: 6, month: 'June'},{id: 7, month: 'July'},{id: 8, month: 'August'},{id: 9, month: 'September'},{id: 10, month: 'October'},{id: 11, month: 'November'},{id: 12, month: 'December'}];
 
     return (
         <form className="budgetForm">
@@ -96,12 +92,21 @@ export const BudgetForm = () => {
             </div>
         </fieldset>
 
+        
         <fieldset>
         <div className="form-group">
-                <label htmlFor="date">Budget Month:</label>
-                <input type="text" id="date" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Budget Month" value={budget.date}/>
-            </div>
-        </fieldset>
+          <label htmlFor="category">Assign to Date: </label>
+          <select value={budget.month} id="month" className="form-control" onChange={handleControlledInputChange}>
+            <option value="0" >Select a Date</option>
+            
+            {monthMap.map(m => (
+              <option key={m.id} value={m.month}>
+                {m.month}
+              </option>
+            ))}
+          </select>
+        </div>
+      </fieldset>
 
         <button className="btn btn-primary"
         disabled={isLoading}
@@ -117,7 +122,7 @@ export const BudgetForm = () => {
 
 
 
-
+    
 
 
 

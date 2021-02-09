@@ -11,26 +11,27 @@ import { IncomeProvider } from "./income/IncomeProvider";
 import { IncomeDetail } from "./income/IncomeDetail";
 import { IncomeForm } from "./income/IncomeForm";
 import { CategoryProvider } from "./categories/CategoryProvider";
-import { ExpenseForm } from "./expenses/ExpesneForm"
+import { ExpenseForm } from "./expenses/ExpenseForm"
 import { ExpenseList } from "./expenses/ExpenseList"
 
 export const ApplicationViews = () => {
   return (
-    <BrowserRouter>
+    
+    <>
       <BudgetProvider>
         <ExpenseProvider>
           <CategoryProvider>
             <IncomeProvider>
 
-            <Route exact path="/">
+            <Route exact path="/budget">
               <BudgetList />
             </Route>
 
-            <Route exact path="/budgets/create">
+            <Route exact path="/budget/create">
               <BudgetForm />
             </Route>
 
-            <Route exact path="/budgets/edit/:budgetId(\d+)">
+            <Route exact path="/budget/edit/:budgetId(\d+)">
               <BudgetForm />
             </Route>
 
@@ -45,10 +46,16 @@ export const ApplicationViews = () => {
             <Route exact path="/expenses/create/:budgetId(\d+)">
               <ExpenseForm />
             </Route>
-
+            
+            
             <Route exact path="/category/detail/:categoryId(\d+)">
               <ExpenseList />
             </Route>
+
+            <Route exact path="/expenses/edit/:expenseId(\d+)/:budgetId(\d+)">
+              <ExpenseForm />
+            </Route>
+           
 
             </IncomeProvider>
           </CategoryProvider>
@@ -72,6 +79,7 @@ export const ApplicationViews = () => {
           <IncomeDetail />
         </Route>
       </IncomeProvider>
-    </BrowserRouter>
+      </>
+   
   );
 };

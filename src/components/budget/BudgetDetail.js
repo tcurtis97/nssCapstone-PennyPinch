@@ -16,7 +16,7 @@ export const BudgetDetail = () => {
   const budgetDelete = () => {
     deleteBudget(budget.id)
       .then(() => {
-        history.push("/budgets")
+        history.push("/budget")
       })
   }
 
@@ -34,7 +34,7 @@ export const BudgetDetail = () => {
         <div className="budget__date">{budget.date}</div>
         
         <button onClick={() => {
-         history.push(`/budgets/edit/${budget.id}`)
+         history.push(`/budget/edit/${budget.id}`)
           }}>Edit</button>
         
         <button onClick={budgetDelete}>Delete Budget</button>

@@ -14,6 +14,5 @@ export const CategoryCard = ({ category, total }) => {
     {total}
     </div>
 
-    {/* <button className='view'> <Link to={`/category/detail/${budId}`}>View expenses</Link> </button> */}
   </section>
   )};

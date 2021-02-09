@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom"
 export const BudgetCard = ({budget}) => (
     <section className="budget">
         <h3 className="budget__name">
-        <Link to={`/budgets/detail/${budget.id}`}>
+        <Link to={`/budget/detail/${budget.id}`}>
           { budget.name }
         </Link>
       </h3>
