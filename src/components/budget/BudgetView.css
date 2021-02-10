@@ -1,8 +1,27 @@
 .budgetview {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-between;
   }
+
+  .budget__title {
+    display: flex;
+    justify-content: center;
+  }
+
+  .budget_date {
+    display: flex;
+    justify-content: flex-start;
+    flex-shrink: 1;
+    border: 1px solid black;
+  }
+
+  .expense__title {
+    display: flex;
+    justify-content: center;
+  }
+
   .category{
     flex-basis: 28%;
     margin: 1em;
@@ -10,9 +29,4 @@
     border: 1px solid goldenrod;
   }
 
-  .expense_card {
-    flex-basis: 28%;
-    margin: 1em;
-    padding: 1em;
-    border: 1px solid goldenrod;    
-  }
+  

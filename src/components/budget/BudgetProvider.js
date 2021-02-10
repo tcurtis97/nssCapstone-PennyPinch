@@ -6,9 +6,10 @@ export const BudgetContext = createContext()
 
 export const BudgetProvider = (props) => {
     const [budget, setBudgets] = useState([])
+    const user = localStorage.getItem("Penny_user")
 
     const getBudgets = () => {
-        return fetch("http://localhost:8088/budgets/?_embed=expenses")
+        return fetch(`http://localhost:8088/budgets?userId=${user}&_embed=expenses`)
         .then(res => res.json())
         .then(setBudgets)
     }

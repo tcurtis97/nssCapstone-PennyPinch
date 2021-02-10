@@ -6,9 +6,10 @@ export const ExpenseContext = createContext()
 
 export const ExpenseProvider = (props) => {
     const [expenses, setExpenses] = useState([])
-    
+    const user = localStorage.getItem("Penny_user")
+
     const getExpenses = () => {
-        return fetch("http://localhost:8088/expenses?_expand=category&_expand=budget")
+        return fetch(`http://localhost:8088/expenses?userId=${user}&_expand=category&_expand=budget`)
         .then(res => res.json())
         .then(setExpenses)
     }

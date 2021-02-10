@@ -6,9 +6,10 @@ export const IncomeContext = createContext()
 
 export const IncomeProvider = (props) => {
     const [incomes, setIncomes] = useState([])
-    
+    const user = localStorage.getItem("Penny_user")
+
     const getIncomes = () => {
-        return fetch("http://localhost:8088/incomes?_embed=expenses")
+        return fetch(`http://localhost:8088/incomes?userId=${user}&_embed=expenses`)
         .then(res => res.json())
         .then(setIncomes)
     }

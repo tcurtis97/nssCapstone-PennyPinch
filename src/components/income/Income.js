@@ -10,6 +10,6 @@ export const IncomeCard = ({income}) => (
           { income.name }
         </Link>
       </h3>
-        <div className="income__value">{income.value}</div>
+        <div className="income__value">${income.value}</div>
     </section>
 )
