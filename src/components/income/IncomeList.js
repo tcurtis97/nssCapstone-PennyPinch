@@ -1,35 +1,31 @@
-import React, { useContext, useEffect } from "react"
-import {IncomeContext } from "./IncomeProvider"
-import {IncomeCard } from "./Income"
-import "./Income.css"
-import { useHistory } from "react-router-dom"
-
+import React, { useContext, useEffect } from "react";
+import { IncomeContext } from "./IncomeProvider";
+import { IncomeCard } from "./Income";
+import "./Income.css";
+import { useHistory } from "react-router-dom";
 
 export const IncomeList = () => {
-  
-  const { incomes, getIncomes } = useContext(IncomeContext)
+  const { incomes, getIncomes } = useContext(IncomeContext);
 
-  
   useEffect(() => {
-    
-    getIncomes()
+    getIncomes();
+  }, []);
 
-  }, [])
-
-  const history = useHistory()
-
+  const history = useHistory();
 
   return (
     <div className="incomes">
-      <button onClick={() => {history.push("/incomes/create")}}>
-            Add Income
-          </button>
+      <button
+        onClick={() => {
+          history.push("/incomes/create");
+        }}
+      >
+        Add Income
+      </button>
 
-      {
-        incomes.map(income => {
-          return <IncomeCard key={income.id} income={income} />
-        })
-      }
+      {incomes.map((income) => {
+        return <IncomeCard key={income.id} income={income} />;
+      })}
     </div>
-  )
-}
+  );
+};

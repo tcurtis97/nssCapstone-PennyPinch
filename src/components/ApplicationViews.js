@@ -11,52 +11,47 @@ import { IncomeProvider } from "./income/IncomeProvider";
 import { IncomeDetail } from "./income/IncomeDetail";
 import { IncomeForm } from "./income/IncomeForm";
 import { CategoryProvider } from "./categories/CategoryProvider";
-import { ExpenseForm } from "./expenses/ExpenseForm"
-import { ExpenseList } from "./expenses/ExpenseList"
+import { ExpenseForm } from "./expenses/ExpenseForm";
+import { ExpenseList } from "./expenses/ExpenseList";
 
 export const ApplicationViews = () => {
   return (
-    
     <>
       <BudgetProvider>
         <ExpenseProvider>
           <CategoryProvider>
             <IncomeProvider>
+              <Route exact path="/budget">
+                <BudgetList />
+              </Route>
 
-            <Route exact path="/budget">
-              <BudgetList />
-            </Route>
+              <Route exact path="/budget/create">
+                <BudgetForm />
+              </Route>
 
-            <Route exact path="/budget/create">
-              <BudgetForm />
-            </Route>
+              <Route exact path="/budget/edit/:budgetId(\d+)">
+                <BudgetForm />
+              </Route>
 
-            <Route exact path="/budget/edit/:budgetId(\d+)">
-              <BudgetForm />
-            </Route>
+              <Route exact path="/budget/detail/:budgetId(\d+)">
+                <BudgetDetail />
+              </Route>
 
-            <Route exact path="/budget/detail/:budgetId(\d+)">
-              <BudgetDetail />
-            </Route>
+              <Route exact path="/budget/view/:budgetId(\d+)">
+                <BudgetView />
+              </Route>
 
-            <Route exact path="/budget/view/:budgetId(\d+)">
-              <BudgetView />
-            </Route>
+              <Route exact path="/expenses/create/:budgetId(\d+)">
+                <ExpenseForm />
+              </Route>
 
-            <Route exact path="/expenses/create/:budgetId(\d+)">
-              <ExpenseForm />
-            </Route>
-            
-            
-            <Route exact path="/category/detail/:categoryId(\d+)">
-              <ExpenseList />
-            </Route>
+              <Route exact path="/category/detail/:categoryId(\d+)">
+                <ExpenseList />
+              </Route>
 
-            <Route exact path="/expenses/edit/:expenseId(\d+)/:budgetId(\d+)">
-              <ExpenseForm />
-            </Route>
-           
-
+              <Route exact path="/expenses/edit/:expenseId(\d+)/:budgetId(\d+)">
+                <ExpenseForm />
+              </Route>
             </IncomeProvider>
           </CategoryProvider>
         </ExpenseProvider>
@@ -79,7 +74,6 @@ export const ApplicationViews = () => {
           <IncomeDetail />
         </Route>
       </IncomeProvider>
-      </>
-   
+    </>
   );
 };
