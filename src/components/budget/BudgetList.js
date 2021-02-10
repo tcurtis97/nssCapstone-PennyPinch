@@ -3,6 +3,7 @@ import { BudgetContext } from "./BudgetProvider";
 import { BudgetCard } from "./Budget";
 import { useHistory } from "react-router-dom";
 import "./Budget.css";
+import Button from 'react-bootstrap/Button';
 
 export const BudgetList = () => {
   const { budget, getBudgets } = useContext(BudgetContext);
@@ -13,15 +14,17 @@ export const BudgetList = () => {
 
   const history = useHistory();
 
+  
   return (
     <div className="budgets">
-      <button className="budget_button"
+      <Button
+        className="budget_button"
         onClick={() => {
           history.push("/budget/create");
         }}
       >
         Add Budget
-      </button>
+      </Button>
 
       {budget.map((budget) => {
         return <BudgetCard key={budget.id} budget={budget} />;
