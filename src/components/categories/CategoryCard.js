@@ -11,7 +11,7 @@ export const CategoryCard = ({ category, total }) => {
     </h3>
 
     <div className="total_expense">
-    {total}
+    ${total}
     </div>
 
   </section>

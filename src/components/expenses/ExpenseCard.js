@@ -27,7 +27,7 @@ export const ExpenseCard = ({ expense, category, budgetParam}) => {
         {expense.name}       
       </h3>
       <div className="expense_value">
-        {expense.value}
+        ${expense.value}
       </div>
 
       <button className='edit'> <Link to={`/expenses/edit/${expense.id}/${budgetParam}`}>Edit</Link> </button>

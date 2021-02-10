@@ -15,7 +15,7 @@ export const BudgetList = () => {
 
   return (
     <div className="budgets">
-      <button
+      <button className="budget_button"
         onClick={() => {
           history.push("/budget/create");
         }}
