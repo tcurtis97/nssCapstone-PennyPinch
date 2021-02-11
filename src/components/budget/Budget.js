@@ -14,7 +14,7 @@ export const BudgetCard = ({ budget }) => (
     <div className="budget__date">{budget.date}, {budget.year}</div>
     
 
-    <Button className="view">
+    <Button className="view" variant="primary">
       {" "}
       <Link to={`/budget/view/${budget.id}`}>View</Link>{" "}
     </Button>

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { BudgetContext } from "./BudgetProvider";
 import "./Budget.css";
 import { useParams, useHistory } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 export const BudgetDetail = () => {
   const { getBudgetById, deleteBudget } = useContext(BudgetContext);
@@ -29,15 +30,15 @@ export const BudgetDetail = () => {
       <h3 className="budget__name">{budget.name}</h3>
       <div className="budget__date">{budget.date}</div>
 
-      <button
+      <Button variant="primary"
         onClick={() => {
           history.push(`/budget/edit/${budget.id}`);
         }}
       >
         Edit
-      </button>
+      </Button>
 
-      <button onClick={budgetDelete}>Delete Budget</button>
+      <Button onClick={budgetDelete} variant="primary">Delete Budget</Button>
     </section>
   );
 };

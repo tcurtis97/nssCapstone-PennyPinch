@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-
+import Button from 'react-bootstrap/Button';
 import { IncomeContext } from "../income/IncomeProvider";
 import "./Income.css";
 import { useHistory, useParams } from "react-router-dom";
@@ -47,7 +47,7 @@ export const IncomeForm = () => {
           name: income.name,
           value: income.value,
           userId: parseInt(user),
-        }).then(() => history.push(`/incomes/detail/${income.id}`));
+        }).then(() => history.push("/incomes"));
       } else {
         //POST - add
         addIncome({
@@ -77,6 +77,15 @@ export const IncomeForm = () => {
       <h2 className="incomeForm__title">
         {incomeId ? "Save Income" : "Add Income"}
       </h2>
+
+      <Button variant="primary"
+        className="back_button"
+        onClick={() => {
+          history.goBack()
+        }}>
+          Back
+        </Button>
+
       <fieldset>
         <div className="form-group">
           <label htmlFor="name">Income name:</label>
@@ -107,7 +116,7 @@ export const IncomeForm = () => {
           />
         </div>
       </fieldset>
-      <button
+      <Button variant="primary"
         className="btn btn-primary"
         disabled={isLoading}
         onClick={(event) => {
@@ -116,7 +125,7 @@ export const IncomeForm = () => {
         }}
       >
         {incomeId ? "Save Income" : "Add Income"}
-      </button>
+      </Button>
     </form>
   );
 };

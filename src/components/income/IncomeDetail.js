@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { IncomeContext } from "./IncomeProvider";
 import "./Income.css";
 import { useParams, useHistory } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 export const IncomeDetail = () => {
   const { getIncomeById, deleteIncome } = useContext(IncomeContext);
@@ -28,14 +29,14 @@ export const IncomeDetail = () => {
     <section className="income">
       <h3 className="income__name">{income.name}</h3>
       <div className="income__value">{income.value}</div>
-      <button
+      <Button variant="primary"
         onClick={() => {
           history.push(`/incomes/edit/${income.id}`);
         }}
       >
         Edit
-      </button>
-      <button onClick={incomeDelete}>Delete Income</button>
+      </Button>
+      <Button variant="primary" onClick={incomeDelete}>Delete Income</Button>
     </section>
   );
 };

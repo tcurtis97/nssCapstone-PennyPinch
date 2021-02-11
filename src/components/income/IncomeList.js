@@ -3,6 +3,7 @@ import { IncomeContext } from "./IncomeProvider";
 import { IncomeCard } from "./Income";
 import "./Income.css";
 import { useHistory } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 export const IncomeList = () => {
   const { incomes, getIncomes } = useContext(IncomeContext);
@@ -15,13 +16,13 @@ export const IncomeList = () => {
 
   return (
     <div className="incomes">
-      <button
+      <Button variant="primary"
         onClick={() => {
           history.push("/incomes/create");
         }}
       >
         Add Income
-      </button>
+      </Button>
 
       {incomes.map((income) => {
         return <IncomeCard key={income.id} income={income} />;

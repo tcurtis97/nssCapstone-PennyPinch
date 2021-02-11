@@ -2,6 +2,8 @@ import React, { useContext, useParams, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import { ExpenseContext } from "./ExpenseProvider"
+import Button from 'react-bootstrap/Button';
+import "./Expense.css";
 
 export const ExpenseCard = ({ expense, category, budgetParam}) => {
   const { deleteExpense } = useContext(ExpenseContext)  
@@ -30,7 +32,7 @@ export const ExpenseCard = ({ expense, category, budgetParam}) => {
         ${expense.value}
       </div>
 
-      <button className='edit'> <Link to={`/expenses/edit/${expense.id}/${budgetParam}`}>Edit</Link> </button>
-      <button onClick={expenseDelete}>Delete Expense</button>
+      <Button variant="primary" className='edit'> <Link to={`/expenses/edit/${expense.id}/${budgetParam}`}>Edit</Link> </Button>
+      <Button variant="primary" onClick={expenseDelete}>Delete Expense</Button>
     </section>
 )}

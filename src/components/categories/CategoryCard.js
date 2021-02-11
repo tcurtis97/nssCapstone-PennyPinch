@@ -1,6 +1,7 @@
 import React from "react";
 import { ExpenseContext } from "../expenses/ExpenseProvider";
 import { Link } from "react-router-dom";
+import "./Category.css";
 
 export const CategoryCard = ({ category, total }) => {
   return (

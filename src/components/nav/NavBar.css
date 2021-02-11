@@ -1,10 +1,20 @@
-.navbar {
+.Navbar {
     display: flex;
     flex-wrap: nowrap;
+    flex-direction: row;
     justify-content: left;
 }
 
-.navbar__item {
+.Nav.Item {
+    display: flex;
     flex-basis: 20%;
+    flex-direction: row;
     list-style-type: none;
+}
+
+.Nav.Link {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: left;
 }

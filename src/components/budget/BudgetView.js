@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import { Form } from "react-bootstrap";
 import Chart from "react-google-charts";
 import { BudgetContext } from "../budget/BudgetProvider";
 import { ExpenseContext } from "../expenses/ExpenseProvider";
@@ -67,8 +69,32 @@ export const BudgetView = () => {
     <section className="budgetview">
       {console.log("yeetyeet")}
       <h4 className="budget__title">{budget.name}</h4>
-      <div className="budget_date">{budget.date}, {budget.year}</div>
-
+      <div className="budget_date">
+        {budget.date}, {budget.year}
+      </div>
+<div className= "chart_counter">
+      <div className="pieChart">
+      <Chart
+        width={"500px"}
+        height={"300px"}
+        chartType="PieChart"
+        loader={<div>Loading Chart</div>}
+        data={[
+          ["Task", "Hours per Day"],
+          ["Work", 11],
+          ["Eat", 2],
+          ["Commute", 2],
+          ["Watch TV", 2],
+          ["Sleep", 7],
+        ]}
+        options={{
+          title: "My Daily Activities",
+          // Just add this option
+          is3D: true,
+        }}
+        rootProps={{ "data-testid": "2" }}
+        />
+</div>
 
       <div className="counter">
         {
@@ -76,13 +102,14 @@ export const BudgetView = () => {
           counterNum ? counterNum : 0
         }
       </div>
+  </div>
+  
+      <h4 className="expense__title">Expenses</h4>
 
-      <button className="addExpense">
+      <Button variant="primary" className="addExpense">
         {/* button linked to expense form to add expenses */}
         <Link to={`/expenses/create/${budgetId}`}>Add expense</Link>
-      </button>
-
-      <h4 className="expense__title">Expenses</h4>
+      </Button>
 
       <fieldset>
         <div className="form-group">

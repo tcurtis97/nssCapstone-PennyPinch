@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-
+import Button from 'react-bootstrap/Button';
 import { ExpenseContext } from "../expenses/ExpenseProvider";
 import { CategoryContext } from "../categories/CategoryProvider";
 import { useHistory, useParams } from "react-router-dom";
+import "./Expense.css";
 
 export const ExpenseForm = () => {
   const { addExpense, getExpenseById, updateExpense, getExpenses } = useContext(
@@ -88,6 +89,14 @@ export const ExpenseForm = () => {
         {expenseId ? "Save Expense" : "Add Expense"}
       </h2>
 
+      <Button variant="primary"
+        className="back_button"
+        onClick={() => {
+          history.goBack()
+        }}>
+          Back
+        </Button>
+
       <fieldset>
         <div className="form-group">
           <label htmlFor="name">Expense name:</label>
@@ -139,7 +148,7 @@ export const ExpenseForm = () => {
         </div>
       </fieldset>
 
-      <button
+      <Button variant="primary"
         className="btn btn-primary"
         disabled={isLoading}
         onClick={(event) => {
@@ -148,7 +157,7 @@ export const ExpenseForm = () => {
         }}
       >
         {expenseId ? "Save Expense" : "Add Expense"}
-      </button>
+      </Button>
     </form>
   );
 };

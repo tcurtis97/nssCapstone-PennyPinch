@@ -133,7 +133,7 @@ export const BudgetForm = () => {
 
   
 
-      <Button
+      <Button variant="primary"
         className="btn btn-primary"
         disabled={isLoading}
         onClick={(event) => {
