@@ -1,30 +1,30 @@
 .Navbar {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: left;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: left;
 }
 
 .Nav.Item {
-    display: flex;
-    flex-basis: 20%;
-    flex-direction: row;
-    list-style-type: none;
+  display: flex;
+  flex-basis: 20%;
+  flex-direction: row;
+  list-style-type: none;
 }
 
 .Nav.Link {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: left;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: left;
 }
 
 .logoutBtn {
-    color: #FBF5F3;
-    background-color: #FBF5F3;
-    background-color: cutom-color;
-    border-color: #FBF5F3;
-    border-color: cutom-cor;
-    display: flex;
-    margin-left: 100em
+  color: #fbf5f3;
+  background-color: #fbf5f3;
+  background-color: cutom-color;
+  border-color: #fbf5f3;
+  border-color: cutom-cor;
+  display: flex;
+  margin-left: 100em;
 }

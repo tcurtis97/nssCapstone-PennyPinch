@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./Budget.css";
 import { BudgetContext } from "../budget/BudgetProvider";
 import { useHistory, useParams } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
 
 export const BudgetForm = () => {
   const { addBudget, getBudgetById, updateBudget, getBudgets } = useContext(
@@ -12,7 +12,7 @@ export const BudgetForm = () => {
   const [budget, setBudgets] = useState({
     name: "",
     date: "",
-    year: ""
+    year: "",
   });
 
   const [isLoading, setIsLoading] = useState(true);
@@ -30,10 +30,10 @@ export const BudgetForm = () => {
 
   const handleClickSaveBudget = () => {
     const name = budget.name;
-    const date= budget.month;
+    const date = budget.month;
     const user = localStorage.getItem("Penny_user");
-    const year = new Date().getFullYear()
-    const nonChangeableYear = budget.year
+    const year = new Date().getFullYear();
+    const nonChangeableYear = budget.year;
 
     if (name === "" || date === "") {
       window.alert("Please enter a name and date");
@@ -72,23 +72,21 @@ export const BudgetForm = () => {
     });
   }, []);
 
+  const monthMap = [
+    { id: 1, month: "January" },
+    { id: 2, month: "February" },
+    { id: 3, month: "March" },
+    { id: 4, month: "April" },
+    { id: 5, month: "May" },
+    { id: 6, month: "June" },
+    { id: 7, month: "July" },
+    { id: 8, month: "August" },
+    { id: 9, month: "September" },
+    { id: 10, month: "October" },
+    { id: 11, month: "November" },
+    { id: 12, month: "December" },
+  ];
 
- const monthMap = [
-  { id: 1, month: "January" },
-  { id: 2, month: "February" },
-  { id: 3, month: "March" },
-  { id: 4, month: "April" },
-  { id: 5, month: "May" },
-  { id: 6, month: "June" },
-  { id: 7, month: "July" },
-  { id: 8, month: "August" },
-  { id: 9, month: "September" },
-  { id: 10, month: "October" },
-  { id: 11, month: "November" },
-  { id: 12, month: "December" },
-]; 
-
-  
   return (
     <form className="budgetForm">
       <h2 className="budgetForm__title">
@@ -130,58 +128,59 @@ export const BudgetForm = () => {
         </svg>
       </Button>
 
-<div className="form_background">
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="name">Budget name:</label>
-          <input
-            type="text"
-            id="name"
-            onChange={handleControlledInputChange}
-            required
-            autoFocus
-            className="form-control"
-            placeholder="Budget name"
-            value={budget.name}
+      <div className="form_background">
+        <fieldset>
+          <div className="form-group">
+            <label htmlFor="name">Budget name:</label>
+            <input
+              type="text"
+              id="name"
+              onChange={handleControlledInputChange}
+              required
+              autoFocus
+              className="form-control"
+              placeholder="Budget name"
+              value={budget.name}
             />
-        </div>
-      </fieldset>
+          </div>
+        </fieldset>
 
-       <fieldset>
-         <div className="form-group">
-           <label htmlFor="category">Assign to Date: </label>
-           <select
-            value={budget.month}
-            id="month"
-            className="form-control"
-            onChange={handleControlledInputChange}
+        <fieldset>
+          <div className="form-group">
+            <label htmlFor="category">Assign to Date: </label>
+            <select
+              value={budget.month}
+              id="month"
+              className="form-control"
+              onChange={handleControlledInputChange}
             >
-            <option value="0">Select a Date</option>
+              <option value="0">Select a Date</option>
 
-            {monthMap.map((m) => (
-              <option key={m.id} value={m.month}>
-                {m.month}
-              </option>
-            ))}
-          </select>
-        </div>
-      </fieldset> 
+              {monthMap.map((m) => (
+                <option key={m.id} value={m.month}>
+                  {m.month}
+                </option>
+              ))}
+            </select>
+          </div>
+        </fieldset>
 
-  
-
-      <Button variant="secondary" style={{color:"black", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)"}} 
-        className="add_button"
-        disabled={isLoading}
-        onClick={(event) => {
-          event.preventDefault();
-          handleClickSaveBudget();
-        }}
+        <Button
+          variant="secondary"
+          style={{
+            color: "black",
+            boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)",
+          }}
+          className="add_button"
+          disabled={isLoading}
+          onClick={(event) => {
+            event.preventDefault();
+            handleClickSaveBudget();
+          }}
         >
-        {budgetId ? "Save Budget" : "Add Budget"}
-      </Button>
-
+          {budgetId ? "Save Budget" : "Add Budget"}
+        </Button>
       </div>
     </form>
   );
 };
-

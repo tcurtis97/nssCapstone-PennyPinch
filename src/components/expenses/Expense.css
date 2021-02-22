@@ -1,31 +1,31 @@
 .expense {
-    flex-basis: 28%;
-    margin: 1em;
-    padding: 1em;
-    border: 1px solid black; 
-    background-color: #FBF5F3;  
-    border-radius: 15px;  
-  }
+  flex-basis: 28%;
+  margin: 1em;
+  padding: 1em;
+  border: 1px solid black;
+  background-color: #fbf5f3;
+  border-radius: 15px;
+}
 
-  .expenseList{
-    flex-basis: 28%;
-    margin: 1em;
-    padding: 1em;
-    font-weight: bold;
-  }
+.expenseList {
+  flex-basis: 28%;
+  margin: 1em;
+  padding: 1em;
+  font-weight: bold;
+}
 
-  .expenseForm{
-    background-color: #FBF5F3;
-  }
+.expenseForm {
+  background-color: #fbf5f3;
+}
 
-  .back_button {
-display: flex;
-justify-content: flex-start;
-background-color: transparent;
-    color: coral;
-  }
+.back_button {
+  display: flex;
+  justify-content: flex-start;
+  background-color: transparent;
+  color: coral;
+}
 
-  /* .expenseForm {
+/* .expenseForm {
     display: flex;
     justify-content: center;
     align-content: center;
@@ -34,33 +34,32 @@ background-color: transparent;
     
   } */
 
-  .form-group {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 40%;
-    margin-right: 40%;
-      }
+.form-group {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 40%;
+  margin-right: 40%;
+}
 
-      .add_button {
-        display: flex;
-        justify-content: center;
-        margin-left: 48%;
-        margin-right: 48%;
-        color: #FBF5F3;
-            background-color: #FBF5F3;
-            background-color: cutom-color;
-            border-color: #FBF5F3;
-            border-color: cutom-cor;
+.add_button {
+  display: flex;
+  justify-content: center;
+  margin-left: 48%;
+  margin-right: 48%;
+  color: #fbf5f3;
+  background-color: #fbf5f3;
+  background-color: cutom-color;
+  border-color: #fbf5f3;
+  border-color: cutom-cor;
+}
 
-          }
-
-          .btn-primary {
-            color: #FBF5F3;
-            background-color: #FBF5F3;
-            background-color: cutom-color;
-            border-color: #FBF5F3;
-            border-color: cutom-cor;
-        }
+.btn-primary {
+  color: #fbf5f3;
+  background-color: #fbf5f3;
+  background-color: cutom-color;
+  border-color: #fbf5f3;
+  border-color: cutom-cor;
+}

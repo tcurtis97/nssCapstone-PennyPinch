@@ -113,47 +113,51 @@ export const IncomeForm = () => {
         </svg>
       </Button>
       <div className="form_background">
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="name">Income name:</label>
-          <input
-            type="text"
-            id="name"
-            onChange={handleControlledInputChange}
-            required
-            autoFocus
-            className="form-control"
-            placeholder="Income name"
-            value={income.name}
-          />
-        </div>
-      </fieldset>
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="value">Value:</label>
-          <input
-            type="number"
-            id="value"
-            onChange={handleControlledInputChange}
-            required
-            autoFocus
-            className="form-control"
-            placeholder="Income Value"
-            value={income.value}
-          />
-        </div>
-      </fieldset>
-      <Button style={{color:"black", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)"}}
-        variant="secondary"
-        className="add_button"
-        disabled={isLoading}
-        onClick={(event) => {
-          event.preventDefault();
-          handleClickSaveIncome();
-        }}
-      >
-        {incomeId ? "Save Income" : "Add Income"}
-      </Button>
+        <fieldset>
+          <div className="form-group">
+            <label htmlFor="name">Income name:</label>
+            <input
+              type="text"
+              id="name"
+              onChange={handleControlledInputChange}
+              required
+              autoFocus
+              className="form-control"
+              placeholder="Income name"
+              value={income.name}
+            />
+          </div>
+        </fieldset>
+        <fieldset>
+          <div className="form-group">
+            <label htmlFor="value">Value:</label>
+            <input
+              type="number"
+              id="value"
+              onChange={handleControlledInputChange}
+              required
+              autoFocus
+              className="form-control"
+              placeholder="Income Value"
+              value={income.value}
+            />
+          </div>
+        </fieldset>
+        <Button
+          style={{
+            color: "black",
+            boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)",
+          }}
+          variant="secondary"
+          className="add_button"
+          disabled={isLoading}
+          onClick={(event) => {
+            event.preventDefault();
+            handleClickSaveIncome();
+          }}
+        >
+          {incomeId ? "Save Income" : "Add Income"}
+        </Button>
       </div>
     </form>
   );
