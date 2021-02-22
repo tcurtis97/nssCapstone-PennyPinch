@@ -1,15 +1,46 @@
+
+
 .budgets {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    justify-content: space-between;
+    background-color: #FBF5F3;
+    
     /* justify-content: space-between; */
   }
   
   .budget {
-      flex-basis: 28%;
-      margin: 1em;
-      padding: 1em;
+      max-width: 30em;
+      flex-wrap: wrap;
+      padding: 10em;
+      background-color: #E28413;
+      justify-content: flex-start;
+      align-items: flex-start;
+      align-content: center;
+      align-self: auto;
+      margin: 3em;
+      border-radius: 15px; 
+      box-sizing: border-box;
       
+  }
+  .budget_detail {
+    max-width: 30em;
+      flex-wrap: wrap;
+      padding: 10em;
+      background-color: #E28413;
+      justify-content: flex-start;
+      align-items: flex-start;
+      align-content: center;
+      align-self: auto;
+      margin: 3em;
+      border-radius: 15px; 
+      
+  }
+
+  .btn_logo {
+    display: flex;
+    flex-direction: row;
   }
 
   .budgetview {
@@ -18,10 +49,50 @@
     justify-content: space-between;
   }
   
+.budgetForm__title{
+  display: flex;
+  justify-content: center;
+}
 
-  .expense_card {
-    flex-basis: 28%;
-    margin: 1em;
-    padding: 1em;
-    border: 1px solid goldenrod;    
+  .form_background {
+    background-color: #E28413;
+    margin: 3em;
+    border-radius: 15px; 
+    padding-bottom: 10px;
   }
+
+  .add_button {
+    display: flex;
+    justify-content: center;
+    margin-left: 48%;
+    margin-right: 48%;
+    color: #FBF5F3;
+    background-color: #FBF5F3;
+    background-color: cutom-color;
+    border-color: #FBF5F3;
+    border-color: cutom-cor;
+    margin-bottom: 10px;
+      }
+
+      .budget_button {
+        display: flex;
+        margin-right: auto ;
+    
+      }
+
+      .budget_cards {
+        display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-start;
+    align-self: auto;
+      }
+
+      .btn-primary {
+        color: #FBF5F3;
+        background-color: #FBF5F3;
+        background-color: cutom-color;
+        border-color: #FBF5F3;
+        border-color: cutom-cor;
+    }

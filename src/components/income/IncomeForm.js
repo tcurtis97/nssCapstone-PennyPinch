@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
 import { IncomeContext } from "../income/IncomeProvider";
 import "./Income.css";
 import { useHistory, useParams } from "react-router-dom";
@@ -45,14 +45,14 @@ export const IncomeForm = () => {
         updateIncome({
           id: income.id,
           name: income.name,
-          value: income.value,
+          value: parseInt(income.value),
           userId: parseInt(user),
         }).then(() => history.push("/incomes"));
       } else {
         //POST - add
         addIncome({
           name: income.name,
-          value: income.value,
+          value: parseInt(income.value),
           userId: parseInt(user),
         }).then(() => history.push("/incomes"));
       }
@@ -78,14 +78,41 @@ export const IncomeForm = () => {
         {incomeId ? "Save Income" : "Add Income"}
       </h2>
 
-      <Button variant="primary"
+      <Button
+        variant
         className="back_button"
         onClick={() => {
-          history.goBack()
-        }}>
-          Back
-        </Button>
-
+          history.goBack();
+        }}
+      >
+        <svg
+          width="48"
+          height="48"
+          viewBox="0 0 48 48"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z"
+            fill="#E28413"
+          />
+          <path
+            d="M31 24H17"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M24 31L17 24L24 17"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </Button>
+      <div className="form_background">
       <fieldset>
         <div className="form-group">
           <label htmlFor="name">Income name:</label>
@@ -105,7 +132,7 @@ export const IncomeForm = () => {
         <div className="form-group">
           <label htmlFor="value">Value:</label>
           <input
-            type="text"
+            type="number"
             id="value"
             onChange={handleControlledInputChange}
             required
@@ -116,8 +143,9 @@ export const IncomeForm = () => {
           />
         </div>
       </fieldset>
-      <Button variant="primary"
-        className="btn btn-primary"
+      <Button style={{color:"black", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)"}}
+        variant="secondary"
+        className="add_button"
         disabled={isLoading}
         onClick={(event) => {
           event.preventDefault();
@@ -126,6 +154,7 @@ export const IncomeForm = () => {
       >
         {incomeId ? "Save Income" : "Add Income"}
       </Button>
+      </div>
     </form>
   );
 };

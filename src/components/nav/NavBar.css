@@ -1,6 +1,6 @@
 .Navbar {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: left;
 }
@@ -14,7 +14,17 @@
 
 .Nav.Link {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: left;
+}
+
+.logoutBtn {
+    color: #FBF5F3;
+    background-color: #FBF5F3;
+    background-color: cutom-color;
+    border-color: #FBF5F3;
+    border-color: cutom-cor;
+    display: flex;
+    margin-left: 100em
 }

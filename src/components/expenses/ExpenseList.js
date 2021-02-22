@@ -34,7 +34,7 @@ export const ExpenseList = ({ selectedCategory }) => {
   }, []);
 
   return (
-    <section className="expense">
+    <section className="expenseList">
       {thing?.map((e) => {
         return (
           <ExpenseCard

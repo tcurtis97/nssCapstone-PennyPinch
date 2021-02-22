@@ -17,7 +17,7 @@ export const NavBar = (props) => {
       <Nav.Link href="/incomes">List of Incomes</Nav.Link>
     </Nav.Item>
     <Nav.Item>
-    <Button variant="primary" onClick={Logout()}>Logout</Button>
+    <Button variant="secondary" style={{color:"black", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)"}} className="logoutBtn" onClick={Logout()}>Logout</Button>
     </Nav.Item>
           </Nav>
           </Navbar>      

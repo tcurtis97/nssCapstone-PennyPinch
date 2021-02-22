@@ -21,7 +21,7 @@ export const ExpenseCard = ({ expense, category, budgetParam}) => {
   
 
    return (
-    <section className="expense_card">
+    <section className="expense">
       <h5 className="categoryName">
         {category.name}
       </h5>
@@ -32,7 +32,7 @@ export const ExpenseCard = ({ expense, category, budgetParam}) => {
         ${expense.value}
       </div>
 
-      <Button variant="primary" className='edit'> <Link to={`/expenses/edit/${expense.id}/${budgetParam}`}>Edit</Link> </Button>
-      <Button variant="primary" onClick={expenseDelete}>Delete Expense</Button>
+      <Button variant="secondary" style={{color:"black", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)"}} className="btn-primary"> <Link to={`/expenses/edit/${expense.id}/${budgetParam}`} style={{ textDecoration: 'none', color: 'black' }}>Edit</Link> </Button>
+      <Button variant="secondary" onClick={expenseDelete} style={{color:"black", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)"}} className="btn-primary">Delete Expense</Button>
     </section>
 )}

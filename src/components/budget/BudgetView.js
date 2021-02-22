@@ -7,16 +7,16 @@ import { BudgetContext } from "../budget/BudgetProvider";
 import { ExpenseContext } from "../expenses/ExpenseProvider";
 import { CategoryContext } from "../categories/CategoryProvider";
 import { CategoryCard } from "../categories/CategoryCard";
-import { ExpenseCard } from "../expenses/ExpenseCard";
-import { CounterCard } from "../counter/Counter";
 import { IncomeContext } from "../income/IncomeProvider";
 import { ExpenseList } from "../expenses/ExpenseList";
 import { Link } from "react-router-dom";
 import "./BudgetView.css";
+import PennyPinchLogo from "../images/PennyPinchLogo.png"
+
 
 export const BudgetView = () => {
   const { expenses, getExpenses } = useContext(ExpenseContext);
-  const { budgets, getBudgets, getBudgetById } = useContext(BudgetContext);
+  const { getBudgetById } = useContext(BudgetContext);
   const { categories, getCategories } = useContext(CategoryContext);
   const { incomes, getIncomes } = useContext(IncomeContext);
 
@@ -63,7 +63,9 @@ export const BudgetView = () => {
   // takes the budget id out of the url and sets it to the variable budgetId to be used throughout this component
   const { budgetId } = useParams();
   const history = useHistory();
-  console.log("YEET");
+ 
+
+
 
   return (
     <section className="budgetview">
@@ -73,28 +75,24 @@ export const BudgetView = () => {
         {budget.date}, {budget.year}
       </div>
 <div className= "chart_counter">
-      <div className="pieChart">
+<img src={PennyPinchLogo} width="400" height="400" alt="Logo" className="logo"></img>
+      {/* <div className="pieChart">
       <Chart
         width={"500px"}
         height={"300px"}
         chartType="PieChart"
         loader={<div>Loading Chart</div>}
         data={[
-          ["Task", "Hours per Day"],
-          ["Work", 11],
-          ["Eat", 2],
-          ["Commute", 2],
-          ["Watch TV", 2],
-          ["Sleep", 7],
+          chartData
         ]}
         options={{
-          title: "My Daily Activities",
+          title: "Expenses",
           // Just add this option
           is3D: true,
         }}
         rootProps={{ "data-testid": "2" }}
         />
-</div>
+</div> */}
 
       <div className="counter">
         {
@@ -104,11 +102,39 @@ export const BudgetView = () => {
       </div>
   </div>
   
+        <div className="expenses_background">
       <h4 className="expense__title">Expenses</h4>
 
-      <Button variant="primary" className="addExpense">
+      <Button variant className="addExpense">
         {/* button linked to expense form to add expenses */}
-        <Link to={`/expenses/create/${budgetId}`}>Add expense</Link>
+        <Link to={`/expenses/create/${budgetId}`} style={{ textDecoration: 'none', color: 'black' }}><svg width="66" height="67" viewBox="0 0 66 67" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_ddd)">
+<circle cx="33" cy="32" r="28" fill="#FBF5F3"/>
+</g>
+<path d="M40 33H34V39H32V33H26V31H32V25H34V31H40V33Z" fill="black"/>
+<defs>
+<filter id="filter0_ddd" x="0" y="0" width="66" height="67" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset dy="2"/>
+<feGaussianBlur stdDeviation="2"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset dy="3"/>
+<feGaussianBlur stdDeviation="2"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow" result="effect2_dropShadow"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="2.5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
+<feBlend mode="normal" in2="effect2_dropShadow" result="effect3_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect3_dropShadow" result="shape"/>
+</filter>
+</defs>
+</svg> Add Expense
+</Link>
       </Button>
 
       <fieldset>
@@ -144,8 +170,11 @@ export const BudgetView = () => {
           })}
         </div>
       ) : (
+        <div className="expense_card">
         <ExpenseList selectedCategory={selectedCategory} />
+      </div>
       )}
+      </div>
     </section>
   );
 };

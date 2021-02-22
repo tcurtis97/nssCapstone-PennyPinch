@@ -1,13 +1,88 @@
 .incomes {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #FBF5F3;
+  }
+  .income_detail{
+    max-width: 30em;
+    flex-wrap: wrap;
+    padding: 10em;
+    background-color: #E28413;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: center;
+    align-self: auto;
+    margin: 3em;
+    border-radius: 15px; 
+    font-weight: bold;
+  }
+
+  .income {
+    max-width: 30em;
+    flex-wrap: wrap;
+    padding: 10em;
+    background-color: #E28413;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: center;
+    align-self: auto;
+    margin: 1em;
+    border-radius: 15px;
+    font-weight: bold; 
+  }
+
+  .btnLogo {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+  }
+
+  .incomeForm {
+    background-color: #FBF5F3;
+  }
+
+  .back_button{
+    color:#FBF5F3
+  }
+
+  .incomeForm__title{
+    display: flex;
+    justify-content: center;
+  }
+
+  .income_background {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     justify-content: space-between;
-    flex-direction: column;
+    align-content: flex-start;
+    align-self: auto;
+    
   }
-  
-  .income {
-      flex-basis: 28%;
-      margin: 1em;
-      padding: 1em;
-     
+
+  .add_income {
+    display: flex;
+    
   }
+
+  .add_button {
+    display: flex;
+    justify-content: center;
+    margin-left: 48%;
+    margin-right: 48%;
+    color: #FBF5F3;
+    background-color: #FBF5F3;
+    background-color: cutom-color;
+    border-color: #FBF5F3;
+    border-color: cutom-cor;
+      }
+
+      .btn-primary {
+        color: #FBF5F3;
+        background-color: #FBF5F3;
+        background-color: cutom-color;
+        border-color: #FBF5F3;
+        border-color: cutom-cor;
+    }
