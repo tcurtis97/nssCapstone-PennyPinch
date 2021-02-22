@@ -1,32 +1,74 @@
 .budgetview {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fbf5f3;
+}
 
-  .budget__title {
+.chart_counter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.budget__title {
+  display: flex;
+  justify-content: center;
+}
+
+.budget_date {
+  display: flex;
+  justify-content: center;
+  padding-left: 25%;
+  padding-right: 25%;
+  font-weight: bold;
+}
+
+.expense__title {
+  display: flex;
+  justify-content: center;
+}
+
+.counter {
+  display: flex;
+  border: 1px solid black;
+  background-color: #e28413;
+  max-width: 20em;
+  margin-left: 25em;
+  padding: 4em;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.addExpense {
+  margin-right: auto;
+}
+
+/* .chart_counter {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-  }
+  } */
 
-  .budget_date {
-    display: flex;
-    justify-content: flex-start;
-    flex-shrink: 1;
-    border: 1px solid black;
-  }
+.category_card {
+  display: flex;
+}
 
-  .expense__title {
-    display: flex;
-    justify-content: center;
-  }
+.expense_card {
+  display: flex;
+}
 
-  .category{
-    flex-basis: 28%;
-    margin: 1em;
-    padding: 1em;
-    border: 1px solid goldenrod;
-  }
+.expenses_background {
+  background-color: #e28413;
+}
 
-  
+.btn-primary {
+  color: #fbf5f3;
+  background-color: #fbf5f3;
+  background-color: cutom-color;
+  border-color: #fbf5f3;
+  border-color: cutom-cor;
+}

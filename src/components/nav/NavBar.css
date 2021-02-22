@@ -1,10 +1,30 @@
-.navbar {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: left;
+.Navbar {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: left;
 }
 
-.navbar__item {
-    flex-basis: 20%;
-    list-style-type: none;
+.Nav.Item {
+  display: flex;
+  flex-basis: 20%;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+.Nav.Link {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.logoutBtn {
+  color: #fbf5f3;
+  background-color: #fbf5f3;
+  background-color: cutom-color;
+  border-color: #fbf5f3;
+  border-color: cutom-cor;
+  display: flex;
+  margin-left: 100em;
 }

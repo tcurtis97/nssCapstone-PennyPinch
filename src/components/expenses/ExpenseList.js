@@ -4,6 +4,7 @@ import { CategoryContext } from "../categories/CategoryProvider";
 import { useParams, useHistory } from "react-router-dom";
 import { ExpenseCard } from "./ExpenseCard";
 import { BudgetContext } from "../budget/BudgetProvider";
+import "./Expense.css";
 
 export const ExpenseList = ({ selectedCategory }) => {
   const { expenses, getExpenses } = useContext(ExpenseContext);
@@ -33,7 +34,7 @@ export const ExpenseList = ({ selectedCategory }) => {
   }, []);
 
   return (
-    <section className="expense">
+    <section className="expenseList">
       {thing?.map((e) => {
         return (
           <ExpenseCard
